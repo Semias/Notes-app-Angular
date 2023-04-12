@@ -1,0 +1,8 @@
+<div class="note flex-col w-full">
+  <div>{{ note.id }}</div>
+  <h1>{{ note.title }}</h1>
+  <div>{{ note.content }}</div>
+  <ol>
+    <li *ngFor="let tag of note.tags">{{ tag }}</li>
+  </ol>
+</div>
