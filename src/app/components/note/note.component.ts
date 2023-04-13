@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Note } from '../../Note';
-// import { NOTES } from '../../mock-notes';
 
 @Component({
   selector: 'app-note',
