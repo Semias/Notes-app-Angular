@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { HttpClientModule } from '@angular/common/http';
+
 import { AppComponent } from './app.component';
 import { DetailViewComponent } from './components/detail-view/detail-view.component';
 import { NoteListComponent } from './components/note-list/note-list.component';
@@ -13,7 +15,7 @@ import { NoteComponent } from './components/note/note.component';
     NoteListComponent,
     NoteComponent,
   ],
-  imports: [BrowserModule],
+  imports: [BrowserModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })
