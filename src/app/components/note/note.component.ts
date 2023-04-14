@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Note } from '../../Note';
 
 @Component({
@@ -8,6 +8,7 @@ import { Note } from '../../Note';
 })
 export class NoteComponent implements OnInit {
   @Input() note!: Note;
+  // @Output() selectNote = new EventEmitter<Note[]>();
 
   constructor() {}
 

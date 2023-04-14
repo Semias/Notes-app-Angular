@@ -1,1 +1,7 @@
-<!-- <h1>{{ note.id }}</h1> -->
+<div *ngIf="selectedNoteDetails">
+  <h1>{{ selectedNoteDetails.title }}</h1>
+</div>
+
+<div *ngIf="!selectedNoteDetails">
+  <h1>No Details selected</h1>
+</div>

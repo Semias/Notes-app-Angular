@@ -1,4 +1,4 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, Input } from '@angular/core';
 import { NoteService } from '../../services/note.service';
 import { Note } from '../../Note';
 
@@ -9,14 +9,18 @@ import { Note } from '../../Note';
 })
 export class NoteListComponent implements OnInit {
   notes: Note[] = [];
+  @Input() selectedNote!: Note | undefined;
 
-  @Output() selectNote();
+  @Output() selectNote = new EventEmitter<Note>();
+  @Output() unSelectNote = new EventEmitter<Note>();
+  // selectedNoteDetails: Note[] | undefined;
+
+  // onNoteSelected(note: Note): void {
+  //   // Hier kannst du deine Logik für die Detailansicht der ausgewählten Note implementieren
+  //   console.log(`Die Note mit der ID ${note.id} wurde ausgewählt.`);
+  // }
 
   constructor(private noteService: NoteService) {}
-
-  selectNote() {
-    return 'hi';
-  }
 
   ngOnInit(): void {
     this.noteService.getNotes().subscribe((notes) => (this.notes = notes));

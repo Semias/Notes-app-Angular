@@ -7,5 +7,5 @@ import { Note } from '../../Note';
   styleUrls: ['./detail-view.component.scss'],
 })
 export class DetailViewComponent {
-  @Input() note!: Note[];
+  @Input() selectedNoteDetails!: Note | undefined;
 }

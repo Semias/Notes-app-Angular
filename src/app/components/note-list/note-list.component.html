@@ -1,5 +1,7 @@
 <app-note
   *ngFor="let note of notes"
+  (click)="selectNote.emit(note)"
+  [class.active]="note === selectedNote"
   [note]="note"
   class="p-3 bg-gray-100 rounded-md hover:cursor-pointer"
 ></app-note>
