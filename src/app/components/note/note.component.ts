@@ -8,7 +8,6 @@ import { Note } from '../../Note';
 })
 export class NoteComponent implements OnInit {
   @Input() note!: Note;
-  // @Output() selectNote = new EventEmitter<Note[]>();
 
   constructor() {}
 

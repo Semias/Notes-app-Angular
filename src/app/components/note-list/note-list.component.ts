@@ -13,12 +13,6 @@ export class NoteListComponent implements OnInit {
 
   @Output() selectNote = new EventEmitter<Note>();
   @Output() unSelectNote = new EventEmitter<Note>();
-  // selectedNoteDetails: Note[] | undefined;
-
-  // onNoteSelected(note: Note): void {
-  //   // Hier kannst du deine Logik für die Detailansicht der ausgewählten Note implementieren
-  //   console.log(`Die Note mit der ID ${note.id} wurde ausgewählt.`);
-  // }
 
   constructor(private noteService: NoteService) {}
 
