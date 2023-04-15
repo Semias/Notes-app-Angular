@@ -1,0 +1,10 @@
+:host {
+  &::-webkit-scrollbar {
+    background-color: rgb(235, 235, 235);
+    width: 4px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: rgb(180, 180, 180);
+    // border: 2px solid #303030;
+  }
+}

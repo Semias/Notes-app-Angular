@@ -1,5 +1,7 @@
-<div class="note flex-col w-full">
+<div class="note-number pr-3 border-r-2 border-gray-600 py-2">
   <div class="text-medium">{{ note.id }}</div>
+</div>
+<div class="note flex-col w-full">
   <h1 class="uppercase text-md font-semibold mb-1">{{ note.title }}</h1>
   <ol class="flex flex-wrap gap-2 mb-2">
     <li
@@ -10,5 +12,5 @@
     </li>
   </ol>
 
-  <div class="font-normal text-sm">{{ note.content }}</div>
+  <div class="font-normal text-sm line-clamp-2">{{ note.content }}</div>
 </div>

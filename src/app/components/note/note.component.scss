@@ -1,0 +1,9 @@
+:host {
+  // border: 2px solid currentColor;
+  transition: 0.2s;
+
+  &.active {
+    background-color: rgb(245, 245, 245);
+    scale: 0.95;
+  }
+}
