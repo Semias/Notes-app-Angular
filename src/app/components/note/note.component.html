@@ -1,13 +1,14 @@
 <div class="note flex-col w-full">
   <div class="text-medium">{{ note.id }}</div>
   <h1 class="uppercase text-md font-semibold mb-1">{{ note.title }}</h1>
-  <div class="mb-2 font-normal text-sm">{{ note.content }}</div>
-  <ol class="flex flex-wrap gap-2">
+  <ol class="flex flex-wrap gap-2 mb-2">
     <li
       *ngFor="let tag of note.tags"
-      class="bg-gray-400 px-3 py-1 rounded-md text-xs text-gray-50"
+      class="bg-rose-900 px-3 py-1 rounded-md text-xs text-gray-50"
     >
       {{ tag }}
     </li>
   </ol>
+
+  <div class="font-normal text-sm">{{ note.content }}</div>
 </div>
