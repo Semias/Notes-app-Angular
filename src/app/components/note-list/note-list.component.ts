@@ -9,10 +9,18 @@ import { Note } from '../../Note';
 })
 export class NoteListComponent implements OnInit {
   notes: Note[] = [];
-  @Input() selectedNote!: Note | undefined;
-
+  selectedNote: Note | null = null;
   @Output() selectNote = new EventEmitter<Note>();
-  @Output() unSelectNote = new EventEmitter<Note>();
+
+  showDetail(note: Note) {
+    if (this.selectedNote === note) {
+      this.selectedNote = null;
+      this.selectNote.emit();
+    } else {
+      this.selectedNote = note;
+      this.selectNote.emit(note);
+    }
+  }
 
   constructor(private noteService: NoteService) {}
 
