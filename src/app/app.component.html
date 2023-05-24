@@ -7,14 +7,9 @@
   class="flex justify-between w-full max-h-[550px] min-h-[50%] bg-white rounded-md p-5 shadow-md"
 >
   <div class="main-left flex flex-col h-full w-1/2 border-r-2 pr-5">
-    <label for="note search" class="block text-sm text-gray-900 font-medium"
-      >Filter</label
-    >
-    <input
-      placeholder="Search..."
-      type="text"
-      class="block w-full rounded-md border-0 py-2 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-300 sm:text-sm sm:leading-6"
-    />
+    <label for="note search" class="block text-sm text-gray-900 font-medium">Filter</label>
+    <input placeholder="Search..." type="text"
+           class="block w-full rounded-md border-0 py-2 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-300 sm:text-sm sm:leading-6"/>
     <app-note-list
       (selectNote)="selectedNote = $event"
       class="mt-3 flex flex-col gap-4 max-h-full overflow-auto py-2 px-2"
@@ -25,10 +20,8 @@
   </div>
 </main>
 
-<button
-  type="button"
-  class="pointer-events-auto rounded-md bg-indigo-600 px-3 py-2 text-[0.8125rem] font-semibold leading-5 text-white hover:bg-indigo-500 shadow-md"
->
+<button type="button"
+        class="pointer-events-auto rounded-md bg-indigo-600 px-3 py-2 text-[0.8125rem] font-semibold leading-5 text-white hover:bg-indigo-500 shadow-md">
   Add new note
 </button>
 
