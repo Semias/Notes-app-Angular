@@ -9,22 +9,5 @@ import { Note } from "./Note";
 })
 export class AppComponent {
 	selectedNote?: Note | undefined;
-	notes: Note[] = [];
-	filteredNotes: Note[] = [];
 	filterValue: string = "";
-
-	// constructor(private noteService: NoteService) {}
-
-	// ngOnInit() {
-	// 	this.noteService.getNotes().subscribe((notes) => (this.notes = notes));
-	// }
-
-	// filterNotes(): void {
-	// 	if (this.filterValue === "") {
-	// 		this.filteredNotes = this.notes;
-	// 	} else {
-	// 		this.filteredNotes = this.notes.filter((note) => note.title.toLowerCase().includes(this.filterValue.toLowerCase()));
-	// 	}
-	// 	console.log(this.filteredNotes);
-	// }
 }

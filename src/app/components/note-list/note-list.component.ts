@@ -9,10 +9,9 @@ import { Note } from "../../Note";
 })
 export class NoteListComponent implements OnInit, OnChanges {
 	notes: Note[] = [];
+	filteredNotes: Note[] = [];
 	selectedNote: Note | null = null;
 	@Output() selectNote = new EventEmitter<Note>();
-
-	@Input() filteredNotes: Note[] = [];
 	@Input() filterValue: string = "";
 
 	get notesToDisplay(): Note[] {
@@ -21,12 +20,10 @@ export class NoteListComponent implements OnInit, OnChanges {
 
 	ngOnChanges(): void {
 		this.filterNotes();
-		console.log("change");
 	}
 
 	filterNotes(): void {
 		this.filteredNotes = this.notes.filter((note) => note.title.toLowerCase().includes(this.filterValue.toLowerCase()));
-		console.log("change");
 	}
 
 	showDetail(note: Note) {
