@@ -1,30 +1,47 @@
-import { Component, EventEmitter, OnInit, Output, Input } from '@angular/core';
-import { NoteService } from '../../services/note.service';
-import { Note } from '../../Note';
+import { Component, EventEmitter, OnInit, Output, Input, OnChanges } from "@angular/core";
+import { NoteService } from "../../services/note.service";
+import { Note } from "../../Note";
 
 @Component({
-  selector: 'app-note-list',
-  templateUrl: './note-list.component.html',
-  styleUrls: ['./note-list.component.scss'],
+	selector: "app-note-list",
+	templateUrl: "./note-list.component.html",
+	styleUrls: ["./note-list.component.scss"],
 })
-export class NoteListComponent implements OnInit {
-  notes: Note[] = [];
-  selectedNote: Note | null = null;
-  @Output() selectNote = new EventEmitter<Note>();
+export class NoteListComponent implements OnInit, OnChanges {
+	notes: Note[] = [];
+	selectedNote: Note | null = null;
+	@Output() selectNote = new EventEmitter<Note>();
 
-  showDetail(note: Note) {
-    if (this.selectedNote === note) {
-      this.selectedNote = null;
-      this.selectNote.emit();
-    } else {
-      this.selectedNote = note;
-      this.selectNote.emit(note);
-    }
-  }
+	@Input() filteredNotes: Note[] = [];
+	@Input() filterValue: string = "";
 
-  constructor(private noteService: NoteService) {}
+	get notesToDisplay(): Note[] {
+		return this.filterValue === "" ? this.notes : this.filteredNotes;
+	}
 
-  ngOnInit(): void {
-    this.noteService.getNotes().subscribe((notes) => (this.notes = notes));
-  }
+	ngOnChanges(): void {
+		this.filterNotes();
+		console.log("change");
+	}
+
+	filterNotes(): void {
+		this.filteredNotes = this.notes.filter((note) => note.title.toLowerCase().includes(this.filterValue.toLowerCase()));
+		console.log("change");
+	}
+
+	showDetail(note: Note) {
+		if (this.selectedNote === note) {
+			this.selectedNote = null;
+			this.selectNote.emit();
+		} else {
+			this.selectedNote = note;
+			this.selectNote.emit(note);
+		}
+	}
+
+	constructor(private noteService: NoteService) {}
+
+	ngOnInit(): void {
+		this.noteService.getNotes().subscribe((notes) => (this.notes = notes));
+	}
 }
