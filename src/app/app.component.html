@@ -10,8 +10,8 @@
 	</div>
 </main>
 
-<button type="button" class="pointer-events-auto rounded-md bg-indigo-600 px-3 py-2 text-[0.8125rem] font-semibold leading-5 text-white hover:bg-indigo-500 shadow-md" onclick="">Add new note</button>
+<button (click)="openPopup()" type="button" class="pointer-events-auto rounded-md bg-indigo-600 px-3 py-2 text-[0.8125rem] font-semibold leading-5 text-white hover:bg-indigo-500 shadow-md" onclick="">Add new note</button>
 
-<a href="#" download="http://localhost:5000/notes">download json</a>
+<!-- <a href="#" download="http://localhost:5000/notes">download json</a> -->
 
-<app-popup-note></app-popup-note>
+<app-popup-note [class.open]="isPopUpOpen" [isPopUpOpen]="isPopUpOpen" (close)="receiveClose($event)"></app-popup-note>

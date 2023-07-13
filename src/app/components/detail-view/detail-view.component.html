@@ -1,26 +1,17 @@
-<div
-  *ngIf="selectedNoteDetails"
-  class="flex flex-col justify-center items-center gap-4"
->
-  <h1 class="uppercase text-xl text-center font-semibold">
-    {{ selectedNoteDetails.title }}
-  </h1>
+<div *ngIf="selectedNoteDetails" class="flex flex-col justify-center items-center gap-4">
+	<h1 class="uppercase text-xl text-center font-semibold">
+		{{ selectedNoteDetails.title }}
+	</h1>
 
-  <ol class="flex gap-5 text-center font-semibold">
-    <li
-      *ngFor="let tags of selectedNoteDetails.tags"
-      class="py-1 px-2 bg-rose-900 text-white rounded-sm font-light text-sm"
-    >
-      {{ tags }}
-    </li>
-  </ol>
+	<ol class="flex gap-5 text-center font-semibold">
+		<li *ngFor="let tags of selectedNoteDetails.tags" class="py-1 px-2 bg-rose-900 text-white rounded-sm font-light text-sm">
+			{{ tags }}
+		</li>
+	</ol>
 
-  <p class="text-center">{{ selectedNoteDetails.content }}</p>
+	<p class="text-center">{{ selectedNoteDetails.content }}</p>
 </div>
 
-<div
-  *ngIf="!selectedNoteDetails"
-  class="flex items-center justify-center w-full h-full"
->
-  <h1 class="uppercase text-xl font-semibold">Please select a note</h1>
+<div *ngIf="!selectedNoteDetails" class="flex items-center justify-center w-full h-full">
+	<h1 class="uppercase text-xl font-semibold">Please select a note</h1>
 </div>

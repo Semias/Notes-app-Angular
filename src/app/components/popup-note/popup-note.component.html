@@ -1,4 +1,8 @@
 <div class="popup-tags">
+	<button class="popup-close" (click)="closePopup()">
+		<mat-icon>cancel</mat-icon>
+	</button>
+
 	<mat-form-field class="example-chip-list">
 		<mat-label>Tags</mat-label>
 		<mat-chip-grid #chipGrid aria-label="Enter Tags">
@@ -11,4 +15,6 @@
 			<input placeholder="New Tag..." [matChipInputFor]="chipGrid" [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur" (matChipInputTokenEnd)="add($event)" />
 		</mat-chip-grid>
 	</mat-form-field>
+
+	<button type="submit">Generate Note</button>
 </div>

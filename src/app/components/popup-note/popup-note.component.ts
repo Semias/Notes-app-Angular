@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, EventEmitter, Input, Output } from "@angular/core";
 import { COMMA, ENTER } from "@angular/cdk/keycodes";
 import { MatChipEditedEvent, MatChipInputEvent, MatChipsModule } from "@angular/material/chips";
 
@@ -15,6 +15,8 @@ export class PopupNoteComponent {
 	addOnBlur = true;
 	readonly separatorKeysCodes = [ENTER, COMMA] as const;
 	tags: Tag[] = [{ name: "Lemon" }, { name: "Lime" }, { name: "Apple" }];
+
+	ngViewAfterInit() {}
 
 	add(event: MatChipInputEvent): void {
 		const value = (event.value || "").trim();
@@ -50,5 +52,12 @@ export class PopupNoteComponent {
 		if (index >= 0) {
 			this.tags[index].name = value;
 		}
+	}
+
+	@Input() isPopUpOpen: boolean | undefined;
+	@Output() close = new EventEmitter<boolean>();
+
+	closePopup() {
+		this.close.emit((this.isPopUpOpen = false));
 	}
 }

@@ -1,5 +1,5 @@
 import { Note } from "./Note";
-import { Component } from "@angular/core";
+import { Component, Input } from "@angular/core";
 
 /**
  * @title Chips with input
@@ -12,4 +12,14 @@ import { Component } from "@angular/core";
 export class AppComponent {
 	selectedNote?: Note | undefined;
 	filterValue: string = "";
+
+	isPopUpOpen: boolean = false;
+
+	openPopup() {
+		this.isPopUpOpen = true;
+	}
+
+	receiveClose($event: boolean) {
+		this.isPopUpOpen = $event;
+	}
 }
