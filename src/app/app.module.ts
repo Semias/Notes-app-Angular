@@ -13,9 +13,10 @@ import { MatChipsModule } from "@angular/material/chips";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatIconModule } from "@angular/material/icon";
 import { NgFor } from "@angular/common";
+import { PopupNoteComponent } from './components/popup-note/popup-note.component';
 
 @NgModule({
-	declarations: [AppComponent, DetailViewComponent, NoteListComponent, NoteComponent],
+	declarations: [AppComponent, DetailViewComponent, NoteListComponent, NoteComponent, PopupNoteComponent],
 	imports: [BrowserModule, HttpClientModule, FormsModule, MatFormFieldModule, MatChipsModule, NgFor, MatIconModule, FormsModule],
 	providers: [],
 	bootstrap: [AppComponent],

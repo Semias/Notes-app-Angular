@@ -1,0 +1,14 @@
+<div class="popup-tags">
+	<mat-form-field class="example-chip-list">
+		<mat-label>Tags</mat-label>
+		<mat-chip-grid #chipGrid aria-label="Enter Tags">
+			<mat-chip-row *ngFor="let tag of tags" (removed)="remove(tag)" [editable]="true" (edited)="edit(tag, $event)">
+				{{ tag.name }}
+				<button matChipRemove [attr.aria-label]="'remove ' + tag.name">
+					<mat-icon>cancel</mat-icon>
+				</button>
+			</mat-chip-row>
+			<input placeholder="New Tag..." [matChipInputFor]="chipGrid" [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur" (matChipInputTokenEnd)="add($event)" />
+		</mat-chip-grid>
+	</mat-form-field>
+</div>
