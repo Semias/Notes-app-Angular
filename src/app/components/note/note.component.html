@@ -1,13 +1,13 @@
-<div class="note-number pr-3 border-r-2 border-gray-600 py-2">
-	<div class="text-medium">{{ note.id }}</div>
+<div class="note-number pr-3 border-r-2 border-white py-2">
+	<div class="text-medium text-white">{{ note.id }}</div>
 </div>
 <div class="note flex-col w-full">
-	<h1 class="uppercase text-md font-semibold mb-1">{{ note.title }}</h1>
+	<h1 class="uppercase text-md font-semibold mb-1 text-white">{{ note.title }}</h1>
 	<ol class="flex flex-wrap gap-2 mb-2">
-		<li *ngFor="let tag of note.tags" class="bg-rose-900 px-3 py-1 rounded-md text-xs text-gray-50">
+		<li *ngFor="let tag of note.tags" class="bg-rose-900 px-3 py-1 rounded-md text-xs text-white">
 			{{ tag }}
 		</li>
 	</ol>
 
-	<div class="font-normal text-sm line-clamp-2">{{ note.content }}</div>
+	<div class="font-normal text-sm line-clamp-2 text-white">{{ note.content }}</div>
 </div>

@@ -14,7 +14,7 @@ export interface Tag {
 export class PopupNoteComponent {
 	addOnBlur = true;
 	readonly separatorKeysCodes = [ENTER, COMMA] as const;
-	tags: Tag[] = [{ name: "Lemon" }, { name: "Lime" }, { name: "Apple" }];
+	tags: Tag[] = [];
 
 	ngViewAfterInit() {}
 

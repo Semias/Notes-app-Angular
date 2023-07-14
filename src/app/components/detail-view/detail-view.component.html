@@ -1,5 +1,5 @@
 <div *ngIf="selectedNoteDetails" class="flex flex-col justify-center items-center gap-4">
-	<h1 class="uppercase text-xl text-center font-semibold">
+	<h1 class="uppercase text-xl text-center font-semibold text-white">
 		{{ selectedNoteDetails.title }}
 	</h1>
 
@@ -9,9 +9,9 @@
 		</li>
 	</ol>
 
-	<p class="text-center">{{ selectedNoteDetails.content }}</p>
+	<p class="text-center text-white">{{ selectedNoteDetails.content }}</p>
 </div>
 
 <div *ngIf="!selectedNoteDetails" class="flex items-center justify-center w-full h-full">
-	<h1 class="uppercase text-xl font-semibold">Please select a note</h1>
+	<h1 class="uppercase text-xl font-semibold text-white">Please select a note</h1>
 </div>

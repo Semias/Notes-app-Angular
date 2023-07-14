@@ -2,19 +2,33 @@
 	<button class="popup-close" (click)="closePopup()">
 		<mat-icon>cancel</mat-icon>
 	</button>
+	<!-- <input type="text" class="w-full py-2 px-1 border-b bg-transparent" placeholder="Headline" /> -->
+	<!-- <input type="text" class="w-full py-2 px-1 border bg-transparent" placeholder="Content" /> -->
 
-	<mat-form-field class="example-chip-list">
-		<mat-label>Tags</mat-label>
-		<mat-chip-grid #chipGrid aria-label="Enter Tags">
-			<mat-chip-row *ngFor="let tag of tags" (removed)="remove(tag)" [editable]="true" (edited)="edit(tag, $event)">
-				{{ tag.name }}
-				<button matChipRemove [attr.aria-label]="'remove ' + tag.name">
-					<mat-icon>cancel</mat-icon>
-				</button>
-			</mat-chip-row>
-			<input placeholder="New Tag..." [matChipInputFor]="chipGrid" [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur" (matChipInputTokenEnd)="add($event)" />
-		</mat-chip-grid>
-	</mat-form-field>
+	<form class="example-form">
+		<mat-form-field class="example-full-width w-full">
+			<mat-label>Headline</mat-label>
+			<input matInput />
+		</mat-form-field>
 
-	<button type="submit">Generate Note</button>
+		<mat-form-field class="example-chip-list">
+			<mat-label>Tags</mat-label>
+			<mat-chip-grid #chipGrid aria-label="Enter Tags">
+				<mat-chip-row *ngFor="let tag of tags" (removed)="remove(tag)" [editable]="true" (edited)="edit(tag, $event)">
+					{{ tag.name }}
+					<button matChipRemove [attr.aria-label]="'remove ' + tag.name">
+						<mat-icon>cancel</mat-icon>
+					</button>
+				</mat-chip-row>
+				<input placeholder="New Tag..." [matChipInputFor]="chipGrid" [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur" (matChipInputTokenEnd)="add($event)" />
+			</mat-chip-grid>
+		</mat-form-field>
+
+		<mat-form-field class="example-full-width w-full">
+			<mat-label>Content</mat-label>
+			<textarea matInput></textarea>
+		</mat-form-field>
+	</form>
+
+	<button class="pointer-events-auto rounded-md bg-white/30 px-3 py-2 text-[0.8125rem] font-semibold leading-5 text-white hover:bg-white hover:text-black shadow-md" type="submit">Create note</button>
 </div>
