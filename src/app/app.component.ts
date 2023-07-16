@@ -1,5 +1,6 @@
-import { Note } from "./Note";
 import { Component, Input } from "@angular/core";
+import { NoteService } from "../app/services/note.service";
+import { Note } from "./Note";
 
 /**
  * @title Chips with input
@@ -10,10 +11,13 @@ import { Component, Input } from "@angular/core";
 	styleUrls: ["./app.component.scss"],
 })
 export class AppComponent {
+	notes: Note[] = [];
 	selectedNote?: Note | undefined;
 	filterValue: string = "";
 
 	isPopUpOpen: boolean = false;
+
+	constructor(private noteService: NoteService) {}
 
 	openPopup() {
 		this.isPopUpOpen = true;
@@ -21,5 +25,10 @@ export class AppComponent {
 
 	receiveClose($event: boolean) {
 		this.isPopUpOpen = $event;
+	}
+
+	addNote(note: Note) {
+		this.noteService.addNote(note).subscribe((note) => this.notes.push(note));
+		// console.log(note);
 	}
 }

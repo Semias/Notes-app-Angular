@@ -79,7 +79,7 @@ export class PopupNoteComponent implements OnInit {
 
 		const newNote = {
 			title: this.title,
-			tags: this.tags,
+			tags: this.tags.map((index) => index.name),
 			content: this.content,
 		};
 

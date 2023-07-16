@@ -3,6 +3,12 @@ import { Observable } from "rxjs";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Note } from "../Note";
 
+const httpOptions = {
+	headers: new HttpHeaders({
+		"Content-Type": "application/json",
+	}),
+};
+
 @Injectable({
 	providedIn: "root",
 })
@@ -18,5 +24,9 @@ export class NoteService {
 	deleteNote(note: Note): Observable<Note> {
 		const url = `${this.apiUrl}/${note.id}`;
 		return this.http.delete<Note>(url);
+	}
+
+	addNote(note: Note): Observable<Note> {
+		return this.http.post<Note>(this.apiUrl, note, httpOptions);
 	}
 }

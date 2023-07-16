@@ -1,34 +1,13 @@
 {
-	"notes": [
-		{
-			"id": 2,
-			"title": "Zweite Notiz",
-			"content": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
-			"tags": ["Arbeit", "Sport"]
-		},
-		{
-			"id": 3,
-			"title": "Dritte Notiz",
-			"content": "ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
-			"tags": ["Arbeit"]
-		},
-		{
-			"id": 4,
-			"title": "Vierte Notiz",
-			"content": "erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
-			"tags": ["Arbeit", "Freizeit"]
-		},
-		{
-			"id": 5,
-			"title": "Fünfte Notiz",
-			"content": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.  duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
-			"tags": ["Arbeit", "Sport"]
-		},
-		{
-			"id": 6,
-			"title": "Sechste Notiz",
-			"content": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, .",
-			"tags": ["Arbeit"]
-		}
-	]
+  "notes": [
+    {
+      "title": "Erste Notiz",
+      "tags": [
+        "Arbeit",
+        "Wirtschaft"
+      ],
+      "content": "Heute habe ich etwas ganz tolles erlebt.",
+      "id": 1
+    }
+  ]
 }
