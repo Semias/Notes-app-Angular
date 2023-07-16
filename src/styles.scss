@@ -4,6 +4,11 @@
 @tailwind utilities;
 
 @import "https://fonts.googleapis.com/icon?family=Material+Icons";
+@import "~@angular/material/prebuilt-themes/pink-bluegrey.css";
+
+:root {
+	--mdc-theme-primary: white;
+}
 
 body {
 	background: url(assets/bg.jpg) center no-repeat;

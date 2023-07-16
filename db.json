@@ -1,13 +1,3 @@
 {
-  "notes": [
-    {
-      "title": "Erste Notiz",
-      "tags": [
-        "Arbeit",
-        "Wirtschaft"
-      ],
-      "content": "Heute habe ich etwas ganz tolles erlebt.",
-      "id": 1
-    }
-  ]
+  "notes": []
 }

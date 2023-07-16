@@ -3,11 +3,11 @@
 		{{ selectedNoteDetails.title }}
 	</h1>
 
-	<ol class="flex gap-5 text-center font-semibold">
-		<li *ngFor="let tags of selectedNoteDetails.tags" class="py-1 px-2 bg-rose-900 text-white rounded-sm font-light text-sm">
+	<mat-chip-listbox class="flex gap-5 text-center font-semibold">
+		<mat-chip *ngFor="let tags of selectedNoteDetails.tags" class="py-1 px-2 bg-rose-900 text-white rounded-sm font-light text-sm">
 			{{ tags }}
-		</li>
-	</ol>
+		</mat-chip>
+	</mat-chip-listbox>
 
 	<p class="text-center text-white">{{ selectedNoteDetails.content }}</p>
 </div>
