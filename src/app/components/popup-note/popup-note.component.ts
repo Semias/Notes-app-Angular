@@ -1,6 +1,7 @@
-import { Component, EventEmitter, Input, Output } from "@angular/core";
+import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 import { COMMA, ENTER } from "@angular/cdk/keycodes";
 import { MatChipEditedEvent, MatChipInputEvent, MatChipsModule } from "@angular/material/chips";
+import { Note } from "src/app/Note";
 
 export interface Tag {
 	name: string;
@@ -11,12 +12,16 @@ export interface Tag {
 	templateUrl: "./popup-note.component.html",
 	styleUrls: ["./popup-note.component.scss"],
 })
-export class PopupNoteComponent {
+export class PopupNoteComponent implements OnInit {
 	addOnBlur = true;
 	readonly separatorKeysCodes = [ENTER, COMMA] as const;
 	tags: Tag[] = [];
 
 	ngViewAfterInit() {}
+
+	constructor() {}
+
+	ngOnInit(): void {}
 
 	add(event: MatChipInputEvent): void {
 		const value = (event.value || "").trim();
@@ -56,8 +61,32 @@ export class PopupNoteComponent {
 
 	@Input() isPopUpOpen: boolean | undefined;
 	@Output() close = new EventEmitter<boolean>();
+	@Output() onAddNote: EventEmitter<Note> = new EventEmitter();
 
 	closePopup() {
 		this.close.emit((this.isPopUpOpen = false));
+	}
+
+	title!: string;
+	// noteTags: string[] | undefined;
+	content!: string;
+
+	onSubmit() {
+		if (!this.title) {
+			alert("Please add note!");
+			return;
+		}
+
+		const newNote = {
+			title: this.title,
+			tags: this.tags,
+			content: this.content,
+		};
+
+		this.onAddNote.emit(newNote);
+
+		this.title = "";
+		this.tags = [];
+		this.content = "";
 	}
 }

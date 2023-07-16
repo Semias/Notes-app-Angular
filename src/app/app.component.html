@@ -14,4 +14,4 @@
 
 <!-- <a href="#" download="http://localhost:5000/notes">download json</a> -->
 
-<app-popup-note [class.open]="isPopUpOpen" [isPopUpOpen]="isPopUpOpen" (close)="receiveClose($event)"></app-popup-note>
+<app-popup-note [class.open]="isPopUpOpen" [isPopUpOpen]="isPopUpOpen" (close)="receiveClose($event)" (onAddNote)="addNote($event)"></app-popup-note>
