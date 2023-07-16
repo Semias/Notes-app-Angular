@@ -41,4 +41,8 @@ export class NoteListComponent implements OnInit, OnChanges {
 	ngOnInit(): void {
 		this.noteService.getNotes().subscribe((notes) => (this.notes = notes));
 	}
+
+	deleteNote(note: Note) {
+		this.noteService.deleteNote(note).subscribe(() => (this.notes = this.notes.filter((n) => n.id !== note.id)));
+	}
 }
