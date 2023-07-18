@@ -1,4 +1,25 @@
-# NotesAngular
+# Notes app Angular
+
+![image](https://github.com/Semias/Notes-Angular/assets/62961421/8898aa60-1fe9-47df-8216-f8114dcff050)
+
+>Background image by NEOM - https://unsplash.com/de/fotos/uqAUg1zvMXQ - https://unsplash.com/de/@neom
+
+## Features
+
+- Create a new note that are saved in db.json
+- Scroll through all created notes
+- Delete note
+- Select note and get detailed informations
+- Filter and search through all notes
+
+Every note contains a *title*, *one or mutlitple tags*, *content*
+
+## Installation
+1. Start json server - ```npm run server```
+2. Run angular app - ```ng serve --open```
+3. Open Browser to http://localhost:4200/
+
+--- 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.5.
 
