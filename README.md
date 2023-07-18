@@ -1,6 +1,6 @@
 # Notes app Angular
 
-![image](https://github.com/Semias/Notes-Angular/assets/62961421/8898aa60-1fe9-47df-8216-f8114dcff050)
+![image](https://github.com/Semias/Notes-app-Angular/assets/62961421/6af81427-0116-4109-bf5a-da80b718f540)
 
 >Background image by NEOM - https://unsplash.com/de/fotos/uqAUg1zvMXQ - https://unsplash.com/de/@neom
 
