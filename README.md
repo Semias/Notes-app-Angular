@@ -15,9 +15,10 @@
 Every note contains a *title*, *one or mutlitple tags*, *content*
 
 ## Installation
-1. Start json server - ```npm run server```
-2. Run angular app - ```ng serve --open```
-3. Open Browser to http://localhost:4200/
+1. Run ```npm install```
+2. Start json server - ```npm run server```
+3. Run angular app - ```ng serve --open```
+4. Open Browser to http://localhost:4200/
 
 --- 
 
