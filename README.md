@@ -6,7 +6,7 @@
 
 ## Features
 
-- Create a new note that are saved in db.json
+- Create a new notes that are saved in db.json
 - Scroll through all created notes
 - Delete note
 - Select note and get detailed informations
