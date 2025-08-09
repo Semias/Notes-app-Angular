@@ -1,7 +1,7 @@
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 
-import { HttpClientModule } from "@angular/common/http";
+import { provideHttpClient, withInterceptorsFromDi } from "@angular/common/http";
 
 import { AppComponent } from "./app.component";
 import { DetailViewComponent } from "./components/detail-view/detail-view.component";
@@ -16,10 +16,6 @@ import { NgFor } from "@angular/common";
 import { MatInputModule } from "@angular/material/input";
 import { PopupNoteComponent } from "./components/popup-note/popup-note.component";
 
-@NgModule({
-	declarations: [AppComponent, DetailViewComponent, NoteListComponent, NoteComponent, PopupNoteComponent],
-	imports: [BrowserModule, HttpClientModule, FormsModule, MatFormFieldModule, MatChipsModule, NgFor, MatIconModule, FormsModule, MatInputModule],
-	providers: [],
-	bootstrap: [AppComponent],
-})
+@NgModule({ declarations: [AppComponent, DetailViewComponent, NoteListComponent, NoteComponent, PopupNoteComponent],
+    bootstrap: [AppComponent], imports: [BrowserModule, FormsModule, MatFormFieldModule, MatChipsModule, NgFor, MatIconModule, FormsModule, MatInputModule], providers: [provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule {}
