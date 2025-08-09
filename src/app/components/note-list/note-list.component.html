@@ -1,3 +1,7 @@
-<app-note *ngFor="let note of notesToDisplay" (click)="showDetail(note)" [class.active]="note === selectedNote" [note]="note" class="p-3 hover:cursor-pointer flex items-center gap-3 rounded-md shadow-[0_0_6px_2px_rgba(255,255,255,0.15)]" (onDeleteNote)="deleteNote(note)"></app-note>
+@for (note of notesToDisplay; track note) {
+  <app-note (click)="showDetail(note)" [class.active]="note === selectedNote" [note]="note" class="p-3 hover:cursor-pointer flex items-center gap-3 rounded-md shadow-[0_0_6px_2px_rgba(255,255,255,0.15)]" (onDeleteNote)="deleteNote(note)"></app-note>
+}
 
-<div *ngIf="!notes">No Notes found</div>
+@if (!notes) {
+  <div>No Notes found</div>
+}

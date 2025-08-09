@@ -1,16 +1,18 @@
 <div class="note-number pr-3 border-r-2 border-white py-2">
-	<div class="text-medium text-white">{{ note.id }}</div>
+  <div class="text-medium text-white">{{ note.id }}</div>
 </div>
 <div class="note flex-col w-full">
-	<h1 class="uppercase text-md font-semibold mb-1 text-white">{{ note.title }}</h1>
-	<mat-chip-listbox class="flex flex-wrap gap-2 mb-2">
-		<mat-chip *ngFor="let tag of note.tags">
-			{{ tag }}
-		</mat-chip>
-	</mat-chip-listbox>
+  <h1 class="uppercase text-md font-semibold mb-1 text-white">{{ note.title }}</h1>
+  <mat-chip-listbox class="flex flex-wrap gap-2 mb-2">
+    @for (tag of note.tags; track tag) {
+      <mat-chip>
+        {{ tag }}
+      </mat-chip>
+    }
+  </mat-chip-listbox>
 
-	<div class="font-normal text-sm line-clamp-2 text-white">{{ note.content }}</div>
+  <div class="font-normal text-sm line-clamp-2 text-white">{{ note.content }}</div>
 </div>
 <div>
-	<mat-icon (click)="deleteNote(note)" class="text-white cursor-pointer">delete</mat-icon>
+  <mat-icon (click)="deleteNote(note)" class="text-white cursor-pointer">delete</mat-icon>
 </div>

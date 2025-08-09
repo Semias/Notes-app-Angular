@@ -1,34 +1,36 @@
 <div class="popup-tags">
-	<button class="popup-close" (click)="closePopup()">
-		<mat-icon>cancel</mat-icon>
-	</button>
-	<!-- <input type="text" class="w-full py-2 px-1 border-b bg-transparent" placeholder="Headline" /> -->
-	<!-- <input type="text" class="w-full py-2 px-1 border bg-transparent" placeholder="Content" /> -->
+  <button class="popup-close" (click)="closePopup()">
+    <mat-icon>cancel</mat-icon>
+  </button>
+  <!-- <input type="text" class="w-full py-2 px-1 border-b bg-transparent" placeholder="Headline" /> -->
+  <!-- <input type="text" class="w-full py-2 px-1 border bg-transparent" placeholder="Content" /> -->
 
-	<form class="create-note-form" (ngSubmit)="onSubmit()">
-		<mat-form-field class="example-full-width w-full form-title">
-			<mat-label>Title</mat-label>
-			<input matInput type="text" name="title" [(ngModel)]="title" />
-		</mat-form-field>
+  <form class="create-note-form" (ngSubmit)="onSubmit()">
+    <mat-form-field class="example-full-width w-full form-title">
+      <mat-label>Title</mat-label>
+      <input matInput type="text" name="title" [(ngModel)]="title" />
+    </mat-form-field>
 
-		<mat-form-field class="example-chip-list form-tags">
-			<mat-label>Tags</mat-label>
-			<mat-chip-grid #chipGrid aria-label="Enter Tags">
-				<mat-chip-row *ngFor="let tag of tags" (removed)="remove(tag)" [editable]="true" (edited)="edit(tag, $event)">
-					{{ tag.name }}
-					<button matChipRemove [attr.aria-label]="'remove ' + tag.name">
-						<mat-icon>cancel</mat-icon>
-					</button>
-				</mat-chip-row>
-				<input placeholder="New Tag..." [matChipInputFor]="chipGrid" [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur" (matChipInputTokenEnd)="add($event)" />
-			</mat-chip-grid>
-		</mat-form-field>
+    <mat-form-field class="example-chip-list form-tags">
+      <mat-label>Tags</mat-label>
+      <mat-chip-grid #chipGrid aria-label="Enter Tags">
+        @for (tag of tags; track tag) {
+          <mat-chip-row (removed)="remove(tag)" [editable]="true" (edited)="edit(tag, $event)">
+            {{ tag.name }}
+            <button matChipRemove [attr.aria-label]="'remove ' + tag.name">
+              <mat-icon>cancel</mat-icon>
+            </button>
+          </mat-chip-row>
+        }
+        <input placeholder="New Tag..." [matChipInputFor]="chipGrid" [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur" (matChipInputTokenEnd)="add($event)" />
+      </mat-chip-grid>
+    </mat-form-field>
 
-		<mat-form-field class="example-full-width w-full form-content">
-			<mat-label>Content</mat-label>
-			<textarea matInput [(ngModel)]="content" rows="6" cols="50" name="content"></textarea>
-		</mat-form-field>
+    <mat-form-field class="example-full-width w-full form-content">
+      <mat-label>Content</mat-label>
+      <textarea matInput [(ngModel)]="content" rows="6" cols="50" name="content"></textarea>
+    </mat-form-field>
 
-		<input class="pointer-events-auto rounded-md bg-white/30 px-3 py-2 text-[0.8125rem] font-semibold leading-5 text-white hover:bg-white hover:text-black shadow-md cursor-pointer form-submit" type="submit" value="Create note" />
-	</form>
+    <input class="pointer-events-auto rounded-md bg-white/30 px-3 py-2 text-[0.8125rem] font-semibold leading-5 text-white hover:bg-white hover:text-black shadow-md cursor-pointer form-submit" type="submit" value="Create note" />
+  </form>
 </div>

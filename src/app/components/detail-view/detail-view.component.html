@@ -1,17 +1,21 @@
-<div *ngIf="selectedNoteDetails" class="flex flex-col justify-center items-center gap-4">
-	<h1 class="uppercase text-xl text-center font-semibold text-white">
-		{{ selectedNoteDetails.title }}
-	</h1>
+@if (selectedNoteDetails) {
+  <div class="flex flex-col justify-center items-center gap-4">
+    <h1 class="uppercase text-xl text-center font-semibold text-white">
+      {{ selectedNoteDetails.title }}
+    </h1>
+    <mat-chip-listbox class="flex gap-5 text-center font-semibold">
+      @for (tags of selectedNoteDetails.tags; track tags) {
+        <mat-chip class="py-1 px-2 bg-rose-900 text-white rounded-sm font-light text-sm">
+          {{ tags }}
+        </mat-chip>
+      }
+    </mat-chip-listbox>
+    <p class="text-center text-white">{{ selectedNoteDetails.content }}</p>
+  </div>
+}
 
-	<mat-chip-listbox class="flex gap-5 text-center font-semibold">
-		<mat-chip *ngFor="let tags of selectedNoteDetails.tags" class="py-1 px-2 bg-rose-900 text-white rounded-sm font-light text-sm">
-			{{ tags }}
-		</mat-chip>
-	</mat-chip-listbox>
-
-	<p class="text-center text-white">{{ selectedNoteDetails.content }}</p>
-</div>
-
-<div *ngIf="!selectedNoteDetails" class="flex items-center justify-center w-full h-full">
-	<h1 class="uppercase text-xl font-semibold text-white">Please select a note</h1>
-</div>
+@if (!selectedNoteDetails) {
+  <div class="flex items-center justify-center w-full h-full">
+    <h1 class="uppercase text-xl font-semibold text-white">Please select a note</h1>
+  </div>
+}
