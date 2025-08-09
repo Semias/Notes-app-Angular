@@ -1,22 +1,22 @@
 :host {
-	transition: 0.2s;
-	user-select: none;
+  transition: 0.2s;
+  user-select: none;
 
-	&:hover {
-		scale: 0.95;
-	}
+  &:hover {
+    scale: 0.95;
+  }
 
-	&.active {
-		background-color: rgba(255, 255, 255);
-		scale: 0.95;
-		cursor: unset;
+  &.active {
+    background-color: rgba(255, 255, 255);
+    scale: 0.95;
+    cursor: unset;
 
-		*:not(li) {
-			color: black;
-		}
+    *:not(li) {
+      color: black;
+    }
 
-		.note-number {
-			border-color: black;
-		}
-	}
+    .note-number {
+      border-color: black;
+    }
+  }
 }

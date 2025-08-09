@@ -1,8 +1,8 @@
-import { Tag } from "./components/popup-note/popup-note.component";
+import { Tag } from './components/popup-note/popup-note.component';
 
 export interface Note {
-	id?: number;
-	title: string;
-	tags: string[];
-	content: string;
+  id?: number;
+  title: string;
+  tags: string[];
+  content: string;
 }

@@ -1,17 +1,44 @@
-<h1 class="text-white font-bold uppercase p-5 text-4xl rounded-2xl w-full text-center">Notes</h1>
-<main class="flex justify-between w-full max-h-[550px] min-h-[550px] backdrop-blur-3xl bg-white/10 rounded-md p-5 shadow-md">
-	<div class="main-left flex flex-col h-full w-1/2 border-r-2 pr-5">
-		<!-- <label for="note search" class="block text-sm text-white font-medium">Filter</label> -->
-		<input [(ngModel)]="filterValue" placeholder="Filter..." type="text" class="block border-b w-full bg-transparent py-2 px-3 text-white shadow-sm placeholder:text-white focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6" />
-		<app-note-list [filterValue]="filterValue" (selectNote)="selectedNote = $event" class="mt-5 flex flex-col gap-4 max-h-full overflow-auto py-2 px-2"></app-note-list>
-	</div>
-	<div class="main-right w-full pl-5">
-		<app-detail-view [selectedNoteDetails]="selectedNote"></app-detail-view>
-	</div>
+<h1
+  class="w-full p-5 text-4xl font-bold text-center text-white uppercase rounded-2xl"
+>
+  Notes
+</h1>
+<main
+  class="flex justify-between w-full max-h-[550px] min-h-[550px] backdrop-blur-3xl bg-white/10 rounded-md p-5 shadow-md"
+>
+  <div class="flex flex-col w-1/2 h-full pr-5 border-r-2 main-left">
+    <!-- <label for="note search" class="block text-sm font-medium text-white">Filter</label> -->
+    <input
+      [(ngModel)]="filterValue"
+      placeholder="Filter..."
+      type="text"
+      class="block w-full px-3 py-2 text-white bg-transparent border-b shadow-sm placeholder:text-white focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6"
+    />
+    <app-note-list
+      [filterValue]="filterValue"
+      (selectNote)="selectedNote = $event"
+      class="flex flex-col max-h-full gap-4 px-2 py-2 mt-5 overflow-auto"
+    ></app-note-list>
+  </div>
+  <div class="w-full pl-5 main-right">
+    <app-detail-view [selectedNoteDetails]="selectedNote"></app-detail-view>
+  </div>
 </main>
 
-<button (click)="openPopup()" type="button" class="pointer-events-auto rounded-md bg-white/10 backdrop-blur-2xl px-3 py-2 text-[0.8125rem] font-semibold leading-5 text-white hover:bg-white hover:text-black shadow-md" onclick="">New note</button>
+<button
+  (click)="openPopup()"
+  type="button"
+  class="pointer-events-auto rounded-md bg-white/10 backdrop-blur-2xl px-3 py-2 text-[0.8125rem] font-semibold leading-5 text-white hover:bg-white hover:text-black shadow-md"
+  onclick=""
+>
+  New note
+</button>
 
 <!-- <a href="#" download="http://localhost:5000/notes">download json</a> -->
 
-<app-popup-note [class.open]="isPopUpOpen" [isPopUpOpen]="isPopUpOpen" (close)="receiveClose($event)" (onAddNote)="addNote($event)"></app-popup-note>
+<app-popup-note
+  [class.open]="isPopUpOpen"
+  [isPopUpOpen]="isPopUpOpen"
+  (close)="receiveClose($event)"
+  (onAddNote)="addNote($event)"
+></app-popup-note>
