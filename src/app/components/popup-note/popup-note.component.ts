@@ -8,9 +8,10 @@ export interface Tag {
 }
 
 @Component({
-	selector: "app-popup-note",
-	templateUrl: "./popup-note.component.html",
-	styleUrls: ["./popup-note.component.scss"],
+    selector: "app-popup-note",
+    templateUrl: "./popup-note.component.html",
+    styleUrls: ["./popup-note.component.scss"],
+    standalone: false
 })
 export class PopupNoteComponent implements OnInit {
 	addOnBlur = true;

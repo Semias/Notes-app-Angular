@@ -3,9 +3,10 @@ import { NoteService } from "../../services/note.service";
 import { Note } from "../../Note";
 
 @Component({
-	selector: "app-note-list",
-	templateUrl: "./note-list.component.html",
-	styleUrls: ["./note-list.component.scss"],
+    selector: "app-note-list",
+    templateUrl: "./note-list.component.html",
+    styleUrls: ["./note-list.component.scss"],
+    standalone: false
 })
 export class NoteListComponent implements OnInit, OnChanges {
 	notes: Note[] = [];
