@@ -1,0 +1,49 @@
+# The deployable stack: the app built from ./Dockerfile (Angular frontend and Go
+# API on one port) plus its Postgres database. Backend/docker-compose.yml is
+# separate - it starts only the database, for local development.
+#
+# Portainer: Stacks > Add stack > Repository, point it at this repo with compose
+# path "docker-compose.yml", and add the environment variable POSTGRES_PASSWORD.
+# The app is then served on port 8080 of the host (set APP_PORT to change it).
+#
+# Locally: set POSTGRES_PASSWORD in your shell, then docker compose up -d
+
+services:
+  app:
+    build: .
+    # Rebuild from the checked-out source on every deploy instead of reusing a
+    # previously built image, so a redeploy always picks up new commits.
+    pull_policy: build
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      # Keyword/value form rather than a postgres:// URL, so the password needs
+      # no escaping (anything but ' and \ works). sslmode=disable is fine here:
+      # the database publishes no port and is reachable only on this stack's
+      # private network.
+      DATABASE_URL: "host=db port=5432 user=${POSTGRES_USER:-notes_user} password='${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD}' dbname=${POSTGRES_DB:-notes_db} sslmode=disable"
+    ports:
+      - "${APP_PORT:-8080}:5000"
+
+  db:
+    image: postgres:16
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-notes_user}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB:-notes_db}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      # -h localhost checks over TCP. On first start Postgres runs a temporary
+      # socket-only server while it initializes, which a plain pg_isready would
+      # already report as ready.
+      test: ["CMD-SHELL", "pg_isready -h localhost -U \"$${POSTGRES_USER}\" -d \"$${POSTGRES_DB}\""]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  postgres_data:

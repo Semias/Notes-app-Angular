@@ -45,6 +45,13 @@ func main() {
 	mux := http.NewServeMux()
 	notes.New(database.New(pool)).RegisterRoutes(mux)
 
+	// The Docker image sets STATIC_DIR to the compiled Angular app, so one server
+	// delivers both the page and the API from the same origin. Unset in
+	// development, where ng serve hosts the frontend instead.
+	if dir := os.Getenv("STATIC_DIR"); dir != "" {
+		mux.Handle("/", http.FileServer(http.Dir(dir)))
+	}
+
 	// The zero value of http.Server has no timeouts at all, which lets a slow or
 	// idle client hold a connection open forever.
 	srv := &http.Server{

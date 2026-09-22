@@ -3,8 +3,9 @@
 Go REST API backing the Angular notes app. Postgres for storage, `goose` for
 migrations, `sqlc` for type-safe queries, and Go's standard library for routing.
 
-Serves `http://localhost:5000`, which is where `Frontend/src/app/services/note.service.ts`
-already points.
+Serves `http://localhost:5000`, which is where the Angular dev build points
+(`Frontend/src/environments/environment.ts`). To deploy frontend and backend
+together, see `docker-compose.yml` in the repo root.
 
 ---
 

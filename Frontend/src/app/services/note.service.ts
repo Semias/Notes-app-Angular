@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Note } from '../Note';
+import { environment } from '../../environments/environment';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -13,7 +14,7 @@ const httpOptions = {
   providedIn: 'root',
 })
 export class NoteService {
-  private apiUrl = 'http://localhost:5000/notes';
+  private apiUrl = `${environment.apiUrl}/notes`;
 
   constructor(private http: HttpClient) {}
 

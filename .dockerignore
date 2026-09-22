@@ -1,0 +1,9 @@
+# The build context is the whole repo. Keep out what the image never needs -
+# above all real credentials, which must not end up in an image layer.
+**/.env
+.git
+**/node_modules
+Frontend/dist
+Frontend/.angular
+Backend/notes-backend
+Backend/notes-backend.exe
