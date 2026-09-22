@@ -1,0 +1,5 @@
+.env
+
+# Compiled server binary
+notes-backend
+notes-backend.exe
